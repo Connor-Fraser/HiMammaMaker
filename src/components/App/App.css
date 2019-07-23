@@ -1,0 +1,16 @@
+.App {
+  display: grid;
+  grid-template-columns: 60vw 40vw;
+  grid-template-rows: 10vh 90vh;
+  grid-template-areas: 'header header' 'canvas selector';
+  background-color:powderblue;
+}
+
+.App-Header {
+  grid-area: header;
+  background-color: palevioletred;
+}
+
+.App-Selectors {
+  margin-right: 5vw;
+}
