@@ -1,4 +1,5 @@
 import React from 'react';
+import CONSTS from '../../utils/constants.js';
 import './AvatarCanvas.css';
 
 /*
@@ -9,10 +10,6 @@ import './AvatarCanvas.css';
 export default class AvatarCanvas extends React.Component {
     constructor(props) {
         super(props);
-
-        this.SHIRT_W_MULTIPLE = 0;
-        this.SHIRT_H_MULTIPLE = 0.5;
-        this.SHIRT_DEFAULT_COLOUR = "#659ed5";
 
         this._resizeHandler = () => {
             this.setCanvasSize();
@@ -34,7 +31,7 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawAvatar(ctx) {
-        this.drawSVG(this.shirt, this.props.shirtColour || this.SHIRT_DEFAULT_COLOUR, this.canvas.width*this.SHIRT_W_MULTIPLE, this.canvas.height*this.SHIRT_H_MULTIPLE, ctx);
+        this.drawSVG(this.shirt, this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR, this.canvas.width*CONSTS.SHIRT.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.H_MULTIPLE, ctx);
     };
 
     drawSVG(avatarComponentRef, colour, x, y, ctx) {

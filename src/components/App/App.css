@@ -1,8 +1,8 @@
 .App {
   display: grid;
   grid-template-columns: 60vw 40vw;
-  grid-template-rows: 10vh 90vh;
-  grid-template-areas: 'header header' 'canvas selector';
+  grid-template-rows: 10vh 15vh 75vh;
+  grid-template-areas: 'header header' 'canvas selector1' 'canvas selector2';
   background-color:powderblue;
 }
 
@@ -11,6 +11,6 @@
   background-color: palevioletred;
 }
 
-.App-Selectors {
-  margin-right: 5vw;
+.Avatar-Canvas {
+  grid-area: canvas;
 }
