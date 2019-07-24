@@ -6,3 +6,13 @@
     border-style: solid;
     border-width: 2px;
 }
+
+.Colour-Selector-Clicked {
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.Clicked-Padding {
+    height: 40%;
+}
