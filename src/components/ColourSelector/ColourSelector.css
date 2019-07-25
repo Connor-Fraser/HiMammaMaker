@@ -13,6 +13,8 @@
     border-width: 2px;
 }
 
-.Clicked-Padding {
-    height: 40%;
+.Colour-Selector-Clicked > div {
+    position: relative;
+    left: -30%;
+    top: 6vh;
 }

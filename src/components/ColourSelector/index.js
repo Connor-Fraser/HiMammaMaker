@@ -46,12 +46,12 @@ export default class ColourSelector extends React.Component {
         if(this.state.clicked) {
             return (
                    <div className="Colour-Selector-Clicked" style={computedStyle}>
-                        <div className="Clicked-Padding"/>
                         <TwitterPicker 
                             color={this.state.colour} 
                             colors={CONSTS.COLOUR_SWATCH}
                             onChangeComplete={this._colourChangeHandler} 
-                            onSwatchHover={this._colourHoverHandler} />
+                            onSwatchHover={this._colourHoverHandler}
+                            triangle="hide" />
                     </div> 
             );
         }
