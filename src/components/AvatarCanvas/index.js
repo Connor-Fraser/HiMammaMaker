@@ -50,6 +50,10 @@ export default class AvatarCanvas extends React.Component {
         img.src = image64;
     }
 
+    componentDidUpdate() {
+        this.clearAndDraw();   
+    }
+
     componentDidMount() {
         window.addEventListener('resize', this._resizeHandler);
         this.setCanvasSize();

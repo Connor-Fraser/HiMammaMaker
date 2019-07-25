@@ -6,6 +6,7 @@ import './ColourSelector.css';
 /*
     ==== Props ====
     avatarComponent = Constant data about the part of the avatar the selector is for
+    onColourChange = callback on completed colour change
 */
 
 export default class ColourSelector extends React.Component {
@@ -27,7 +28,7 @@ export default class ColourSelector extends React.Component {
             this.setState({
                 colour: newColour.hex,
                 clicked: false
-            });
+            }, this.props.onColourChange(this.state.colour));
         }
 
         this._colourHoverHandler = (newColour) => {
@@ -59,4 +60,4 @@ export default class ColourSelector extends React.Component {
             <div className="Colour-Selector" style={computedStyle} onClick={this._clickHandler}></div>
         );
     }
-}
+};
