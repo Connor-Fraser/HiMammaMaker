@@ -1,6 +1,14 @@
 .Canvas-Wrapper {
+    align-items: center;
     background-color: plum;
+    display: flex;
     height: 100%;
+    justify-content: center;
+}
+
+.Canvas {
+    width: 400px;
+    height: 600px;
 }
 
 .Svgs {

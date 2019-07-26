@@ -1,5 +1,4 @@
 import React from 'react';
-import CONSTS from '../../utils/constants.js'
 import { TwitterPicker } from 'react-color';
 import './ColourSelector.css';
 
@@ -48,7 +47,7 @@ export default class ColourSelector extends React.Component {
                    <div className="Colour-Selector-Clicked" style={computedStyle}>
                         <TwitterPicker 
                             color={this.state.colour} 
-                            colors={CONSTS.COLOUR_SWATCH}
+                            colors={this.props.avatarComponent.COLOUR_SWATCH}
                             onChangeComplete={this._colourChangeHandler} 
                             onSwatchHover={this._colourHoverHandler}
                             triangle="hide" />
