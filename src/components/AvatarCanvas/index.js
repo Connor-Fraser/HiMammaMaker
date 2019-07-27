@@ -4,7 +4,10 @@ import './AvatarCanvas.css';
 
 /*
     ==== Props ====
+    primarySkinColour: hex string denoting primary skin tone
+    secondarySkinColour: hex string denoting secondary skin tone
     shirtColour: hex string denoting shirt colour
+    shirtCuffsColour: hex string denoting shirt cuffs colour
 */
 
 export default class AvatarCanvas extends React.Component {
@@ -23,15 +26,21 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawAvatar(ctx) {
+        this.drawSkin(ctx);
+        this.drawShirt(ctx);
+    };
+
+    drawSkin(ctx) {
         this.drawSVG(this.neck, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.NECK.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NECK.H_MULTIPLE, ctx);
         this.drawSVG(this.ears, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.EARS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.EARS.H_MULTIPLE, ctx);
         this.drawSVG(this.face, this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.FACE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.FACE.H_MULTIPLE, ctx);
         this.drawSVG(this.nose, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.NOSE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NOSE.H_MULTIPLE, ctx);
         this.drawSVG(this.arms, this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.ARMS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.ARMS.H_MULTIPLE, ctx);
+    };
+
+    drawShirt(ctx) {
         this.drawSVG(this.shirt, this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR, this.canvas.width*CONSTS.SHIRT.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.H_MULTIPLE, ctx);
-    
-        // this.drawSVG(this.ears, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.EARS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.EARS.H_MULTIPLE, ctx);
-        
+        this.drawSVG(this.shirtCuffs, this.props.shirtCuffsColour || CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR, this.canvas.width*CONSTS.SHIRT.CUFFS.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.CUFFS.H_MULTIPLE, ctx);               
     };
 
     drawSVG(avatarComponentRef, colour, x, y, ctx) {
@@ -69,6 +78,7 @@ export default class AvatarCanvas extends React.Component {
                     <svg ref={ face => this.face = face } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><title>FACE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle cx="97.7" cy="97.7" r="97.7"/></g></g></svg>
                     <svg ref={ nose => this.nose = nose } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><title>NOSE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon points="0 27.2 15.7 0 31.41 27.2 0 27.2"/></g></g></svg>
                     <svg ref={ shirt => this.shirt = shirt } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452.44 213.43"><title>SHIRT_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M452.44,155.05c0-72.6-66-155-157.91-155H281.91c0,24.29-24.93,44-55.69,44s-55.69-19.7-55.69-44H157.91C66,0,0,82.45,0,155.05H70.16v58.38h312V155.05Z"/></g></g></svg>
+                    <svg ref={ shirtCuffs => this.shirtCuffs = shirtCuffs } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289.61 13.41"><title>SHIRTCUFF_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect width="44.92" height="13.41"/><rect x="244.69" width="44.92" height="13.41"/></g></g></svg>
                     <svg ref={ arms => this.arms = arms } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 291 300"><title>ARMS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect width="36.4" height="23.97"/><rect x="236.16" width="36.4" height="23.97"/></g></g></svg>
                 </div>
             </div>
