@@ -1,8 +1,14 @@
 .Avatar-Component-Selector {
     border-radius: 25%;
     display: grid;
-    grid-template-columns: 8% 92%;
+    grid-template-columns: 20% 80%;
     height: 100%;
+}
+
+.Colour-Selector-Section {
+    display: grid;
+    grid-template-rows: 100%;
+    /* grid-template-columns is set programatically in the index.js file */
 }
 
 .Item-List {

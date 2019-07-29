@@ -10,13 +10,23 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR
+      shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR,
+      shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR
     };
+
+    this.shirtColourSwatches = [CONSTS.SHIRT.COLOUR_SWATCH, CONSTS.SHIRT.CUFFS.COLOUR_SWATCH];
+    this.shirtColourCallbacks = [this.onShirtColourChange, this.onShirtCuffColourChange];
   };
 
   onShirtColourChange = (newColour) => {
     this.setState({
       shirtColour: newColour
+    });
+  }
+
+  onShirtCuffColourChange = (newColour) => {
+    this.setState({
+      shirtCuffColour: newColour
     });
   }
   
@@ -26,11 +36,11 @@ export default class App extends React.Component {
         <div className="App-Header"></div>
         
         <div className="Avatar-Canvas">
-          <AvatarCanvas shirtColour={ this.state.shirtColour }/>
+          <AvatarCanvas shirtColour={ this.state.shirtColour } shirtCuffsColour={ this.state.shirtCuffColour }/>
         </div>
         
         <div className="App-Selectors">
-          <AvatarComponentSelector avatarComponent={ CONSTS.SHIRT } onColourChange={ this.onShirtColourChange } />
+          <AvatarComponentSelector colourSwatches={ this.shirtColourSwatches } onColourChanges={ this.shirtColourCallbacks } />
         </div>
       </div>
     );

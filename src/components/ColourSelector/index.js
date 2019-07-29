@@ -4,8 +4,9 @@ import './ColourSelector.css';
 
 /*
     ==== Props ====
-    avatarComponent = Constant data about the part of the avatar the selector is for
-    onColourChange = callback on completed colour change
+    colourSwatch: colour swatch to be displayed for selection (first considered default)
+    onColourChange: callback on completed colour change
+    width: %of parent width colour Selector should take
 */
 
 export default class ColourSelector extends React.Component {
@@ -13,7 +14,7 @@ export default class ColourSelector extends React.Component {
         super(props);
 
         this.state = {
-            colour: this.props.avatarComponent.DEFAULT_COLOUR,
+            colour: this.props.colourSwatch[0],
             clicked: false
         }
 
@@ -39,7 +40,8 @@ export default class ColourSelector extends React.Component {
 
     render() {
         const computedStyle = {
-            backgroundColor: this.state.colour
+            backgroundColor: this.state.colour,
+            width: this.props.width
         };
 
         if(this.state.clicked) {
@@ -47,7 +49,7 @@ export default class ColourSelector extends React.Component {
                    <div className="Colour-Selector-Clicked" style={computedStyle}>
                         <TwitterPicker 
                             color={this.state.colour} 
-                            colors={this.props.avatarComponent.COLOUR_SWATCH}
+                            colors={this.props.colourSwatch}
                             onChangeComplete={this._colourChangeHandler} 
                             onSwatchHover={this._colourHoverHandler}
                             triangle="hide" />
