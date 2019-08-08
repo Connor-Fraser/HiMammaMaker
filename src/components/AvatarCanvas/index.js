@@ -31,21 +31,20 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawSkin(ctx) {
-        this.drawSVG(CONSTS.SKIN.NECK.SVG, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.NECK.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NECK.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.EARS.SVG, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.EARS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.EARS.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.FACE.SVG, this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.FACE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.FACE.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.NOSE.SVG, this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.NOSE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NOSE.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.ARMS.SVG, this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR, this.canvas.width*CONSTS.SKIN.ARMS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.ARMS.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.NECK.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NECK.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.EARS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.EARS.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.FACE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.FACE.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.NOSE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NOSE.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.ARMS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.ARMS.H_MULTIPLE, ctx);
     };
 
     drawShirt(ctx) {
-        this.drawSVG(CONSTS.SHIRT.SVG, this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR, this.canvas.width*CONSTS.SHIRT.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SHIRT.CUFFS.SVG, this.props.shirtCuffsColour || CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR, this.canvas.width*CONSTS.SHIRT.CUFFS.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.CUFFS.H_MULTIPLE, ctx);               
+        this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR), this.canvas.width*CONSTS.SHIRT.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour || CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR), this.canvas.width*CONSTS.SHIRT.CUFFS.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.CUFFS.H_MULTIPLE, ctx);               
     };
 
-    drawSVG(svgString, colour, x, y, ctx) {
-        let svg = svgString.replace('FILL_COLOUR', colour);
-        const svg64 = btoa(svg);
+    drawSVG(svgString, x, y, ctx) {
+        const svg64 = btoa(svgString);
         const b64Start = 'data:image/svg+xml;base64,';
         const image64 = b64Start + svg64;
         const img = new Image();
