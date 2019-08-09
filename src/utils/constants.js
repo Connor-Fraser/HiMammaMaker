@@ -14,6 +14,25 @@ export default {
             COLOUR_SWATCH: ['#476e93', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
             GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289.61 13.41"><title>SHIRTCUFF_SVG</title><defs><style>.cls-1{fill:${colour}}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" width="44.92" height="13.41"/><rect class="cls-1" x="244.69" width="44.92" height="13.41"/></g></g></svg>`
         },
+
+        OPTIONS: [
+            {
+                NAME: 'NONE',
+                GENERATE_SVG: null
+            },
+            {
+                NAME: 'BALL',
+                W_MULTIPLE: 0,
+                H_MULTIPLE: 0,
+                GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.37 53.76"><defs><style>.cls-1{fill:#83cdbb;}</style></defs><title>CIRCLE</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M76.37,38.18A38.19,38.19,0,1,0,3.32,53.76H73A38,38,0,0,0,76.37,38.18Z"/></g></g></svg>`
+            },
+            {
+                NAME: 'STAR',
+                W_MULTIPLE: 0,
+                H_MULTIPLE: 0,
+                GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.44 67.56"><defs><style>.cls-1{fill:#fdcb80;}</style></defs><title>STAR_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M24.28,67.56a7.55,7.55,0,0,0-2.75-8.44L3.13,45.75A7.56,7.56,0,0,1,7.57,32.08H30.32a7.55,7.55,0,0,0,7.18-5.22l7-21.64a7.56,7.56,0,0,1,14.38,0l7,21.64a7.55,7.55,0,0,0,7.18,5.22H95.87a7.56,7.56,0,0,1,4.44,13.67L81.91,59.12a7.55,7.55,0,0,0-2.75,8.44"/></g></g></svg>`
+            },
+        ]
     },
 
     SKIN : {

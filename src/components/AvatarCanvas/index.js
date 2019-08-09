@@ -8,9 +8,18 @@ import './AvatarCanvas.css';
     secondarySkinColour: hex string denoting secondary skin tone
     shirtColour: hex string denoting shirt colour
     shirtCuffsColour: hex string denoting shirt cuffs colour
+    shirtOption: shirt option from the consts
 */
 
 export default class AvatarCanvas extends React.Component {
+
+    _getXPos(wMultiple) {
+        return wMultiple*this.canvas.width;
+    }
+
+    _getYPos(hMultiple) {
+        return hMultiple*this.canvas.height;
+    }
 
     setCanvasSize() {
         this.canvas.width = this.canvas.offsetWidth;
@@ -31,16 +40,20 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawSkin(ctx) {
-        this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.NECK.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NECK.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.EARS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.EARS.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.FACE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.FACE.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.NOSE.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.NOSE.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this.canvas.width*CONSTS.SKIN.ARMS.W_MULTIPLE, this.canvas.height*CONSTS.SKIN.ARMS.H_MULTIPLE, ctx);
+        this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this._getXPos(CONSTS.SKIN.NECK.W_MULTIPLE), this._getYPos(CONSTS.SKIN.NECK.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this._getXPos(CONSTS.SKIN.EARS.W_MULTIPLE), this._getYPos(CONSTS.SKIN.EARS.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this._getXPos(CONSTS.SKIN.FACE.W_MULTIPLE), this._getYPos(CONSTS.SKIN.FACE.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour || CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR), this._getXPos(CONSTS.SKIN.NOSE.W_MULTIPLE), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour || CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR), this._getXPos(CONSTS.SKIN.ARMS.W_MULTIPLE), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
     };
 
     drawShirt(ctx) {
-        this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR), this.canvas.width*CONSTS.SHIRT.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.H_MULTIPLE, ctx);
-        this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour || CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR), this.canvas.width*CONSTS.SHIRT.CUFFS.W_MULTIPLE, this.canvas.height*CONSTS.SHIRT.CUFFS.H_MULTIPLE, ctx);               
+        this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour || CONSTS.SHIRT.DEFAULT_COLOUR), this._getXPos(CONSTS.SHIRT.W_MULTIPLE), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour || CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR), this._getXPos(CONSTS.SHIRT.CUFFS.W_MULTIPLE), this._getYPos(CONSTS.SHIRT.CUFFS.H_MULTIPLE), ctx);
+        
+        if(this.props.shirtOption.GENERATE_SVG !== null) {
+            this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption.W_MULTIPLE), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
+        }
     };
 
     drawSVG(svgString, x, y, ctx) {

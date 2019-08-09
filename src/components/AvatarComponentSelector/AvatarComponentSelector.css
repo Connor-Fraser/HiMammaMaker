@@ -11,6 +11,9 @@
     /* grid-template-columns is set programatically in the index.js file */
 }
 
-.Item-List {
+.Option-List {
     background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

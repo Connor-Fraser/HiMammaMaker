@@ -1,22 +1,22 @@
 import React from 'react';
 import ColourSelector from '../ColourSelector';
+import OptionSelector from '../OptionSelector'
 import './AvatarComponentSelector.css';
 
 /*
     ==== Props ====
     colourSwatches: array of arrays of colour swatches (the first of which is the default colour)
     onColourChanges: array of callback functions for when colours gets changed
+    options: array of options arrays (the first of which is the default selection)
+    onOptionsChanges: array of callback functions for when an option gets changed
 */
 
 export default class AvatarComponentSelector extends React.Component {
-    // constructor(props) {
-    //     super(props);
-
-    // };
-
     render() {
         if(this.props.onColourChanges.length !== this.props.colourSwatches.length) {
             return <p>Make sure to pass equal length array values to colourSwatches and onColourChanges</p>
+        } else if(this.props.options.length !== this.props.onOptionsChanges.length) {
+            return <p>Make sure to pass equal length array values to options and onOptionsChanges</p>
         }
 
         //For multiple colours in one selector, need to set a grid-template-columns where they are all the same percentage
@@ -45,7 +45,9 @@ export default class AvatarComponentSelector extends React.Component {
                 <div className="Colour-Selector-Section" style={ colourSelectorSectionComputedStyles }>
                     { colourSelectors }
                 </div>
-                <div className="Item-List"></div>
+                <div className="Option-List">
+                    <OptionSelector options={this.props.options[0]} onOptionChange={this.props.onOptionsChanges[0]} />
+                </div>
             </div>
         );
     }
