@@ -53,7 +53,7 @@ export default class App extends React.Component {
             colourSwatches={ this.shirtColourSwatches } 
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 
-            onOptionsChanges={ this.onShirtOptionChange }
+            onOptionsChanges={ this.shirtOptionsCallbacks }
           />
         </div>
       </div>
