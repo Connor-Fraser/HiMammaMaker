@@ -12,6 +12,10 @@ export default class App extends React.Component {
     this.state = {
       primarySkinColour: CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR,
       secondarySkinColour: CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR,
+
+      eyeColour: CONSTS.EYES.DEFAULT_COLOUR,
+      eyeOption: CONSTS.EYES.OPTIONS[1],
+      
       shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR,
       shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR,
       shirtOption: CONSTS.SHIRT.OPTIONS[0]
@@ -19,6 +23,12 @@ export default class App extends React.Component {
 
     this.skinColourSwatches = [CONSTS.SKIN.COLOUR_SWATCH];
     this.skinColourCallbacks = [this.onPrimarySkinChange];
+    
+    this.eyeColourSwatches = [CONSTS.EYES.COLOUR_SWATCH];
+    this.eyeColourCallbacks = [this.onEyeColourChange];
+    this.eyeOptions = [CONSTS.EYES.OPTIONS];
+    this.eyeOptionsCallbacks = [this.onEyeOptionChange];
+    
     this.shirtColourSwatches = [CONSTS.SHIRT.COLOUR_SWATCH, CONSTS.SHIRT.CUFFS.COLOUR_SWATCH];
     this.shirtColourCallbacks = [this.onShirtColourChange, this.onShirtCuffColourChange];
     this.shirtOptions = [CONSTS.SHIRT.OPTIONS];
@@ -27,13 +37,21 @@ export default class App extends React.Component {
 
   onPrimarySkinChange = (newColour) => {
     const newSecondaryColour = CONSTS.SKIN.SECONDARY_COLOUR_SWATCH[CONSTS.SKIN.COLOUR_SWATCH.findIndex((element) => element === newColour)];
-
-    console.log(newColour, CONSTS.SKIN.COLOUR_SWATCH)
-    console.log(CONSTS.SKIN.COLOUR_SWATCH.findIndex((element) => element === newColour), newColour, CONSTS.SKIN.SECONDARY_COLOUR_SWATCH[CONSTS.SKIN.COLOUR_SWATCH.findIndex((element) => element === newColour)])
-
     this.setState({
       primarySkinColour: newColour,
       secondarySkinColour: newSecondaryColour
+    });
+  }
+
+  onEyeColourChange = (newColour) => {
+    this.setState({
+      eyeColour: newColour
+    });
+  }
+
+  onEyeOptionChange = (option) => {
+    this.setState({
+      eyeOption: option
     });
   }
 
@@ -62,8 +80,12 @@ export default class App extends React.Component {
         
         <div className="Avatar-Canvas">
           <AvatarCanvas 
-            primarySkinColour={this.state.primarySkinColour }
-            secondarySkinColour={this.state.secondarySkinColour }
+            primarySkinColour={ this.state.primarySkinColour }
+            secondarySkinColour={ this.state.secondarySkinColour }
+
+            eyeColour={ this.state.eyeColour }
+            eyeOption={ this.state.eyeOption }
+
             shirtColour={ this.state.shirtColour } 
             shirtCuffsColour={ this.state.shirtCuffColour } 
             shirtOption={ this.state.shirtOption }/>
@@ -73,6 +95,13 @@ export default class App extends React.Component {
           <AvatarComponentSelector
             colourSwatches={ this.skinColourSwatches }
             onColourChanges={ this.skinColourCallbacks }
+          />
+
+          <AvatarComponentSelector 
+            colourSwatches={ this.eyeColourSwatches } 
+            onColourChanges={ this.eyeColourCallbacks } 
+            options={ this.eyeOptions } 
+            onOptionsChanges={ this.eyeOptionsCallbacks }
           />
 
           <AvatarComponentSelector 

@@ -6,6 +6,8 @@ import './AvatarCanvas.css';
     ==== Props ====
     primarySkinColour: hex string denoting primary skin tone
     secondarySkinColour: hex string denoting secondary skin tone
+    eyeColour: hex string denoting eye colour
+    eyeOption: eye option from the consts
     shirtColour: hex string denoting shirt colour
     shirtCuffsColour: hex string denoting shirt cuffs colour
     shirtOption: shirt option from the consts
@@ -36,6 +38,7 @@ export default class AvatarCanvas extends React.Component {
 
     drawAvatar(ctx) {
         this.drawSkin(ctx);
+        this.drawFace(ctx);
         this.drawShirt(ctx);
     };
 
@@ -46,6 +49,12 @@ export default class AvatarCanvas extends React.Component {
         this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NOSE.W_MULTIPLE), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.ARMS.W_MULTIPLE), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
     };
+
+    drawFace(ctx) {
+        if(this.props.eyeOption) {
+            this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption.W_MULTIPLE), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
+        }
+    }
 
     drawShirt(ctx) {
         this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour), this._getXPos(CONSTS.SHIRT.W_MULTIPLE), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
