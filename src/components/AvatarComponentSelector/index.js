@@ -19,6 +19,9 @@ export default class AvatarComponentSelector extends React.Component {
             return <p>Make sure to pass equal length array values to options and onOptionsChanges</p>
         }
 
+        let componentSelectorComputedStyles = {
+            gridTemplateColumns: '50% 50%'
+        };
         let colourSelectorSectionComputedStyles;
         let colourSelectors;
 
@@ -43,10 +46,18 @@ export default class AvatarComponentSelector extends React.Component {
             colourSelectorSectionComputedStyles = {
                 gridTemplateColumns: sectionColumnsTemplateString
             }
+        } else {
+            componentSelectorComputedStyles.gridTemplateColumns = '0% 100%'
+        }
+
+        if(this.props.options) {
+
+        } else {
+            componentSelectorComputedStyles.gridTemplateColumns = '100% 0%'
         }
 
         return(
-            <div className="Avatar-Component-Selector">
+            <div className="Avatar-Component-Selector" style={ componentSelectorComputedStyles }>
 
                 {this.props.colourSwatches ? 
                     <div className="Colour-Selector-Section" style={ colourSelectorSectionComputedStyles }>
