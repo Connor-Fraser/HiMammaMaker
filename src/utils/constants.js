@@ -23,13 +23,13 @@ export default {
             {
                 NAME: 'BALL',
                 WIDTH: 108.56,
-                H_MULTIPLE: 0.645,
+                H_MULTIPLE: 0.845,
                 GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" width="108.56" height="76.42" viewBox="0 0 108.56 76.42"><defs><style>.cls-1{fill:#53c1ac;}</style></defs><title>CIRCLE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M108.56,54.28A54.28,54.28,0,1,0,4.72,76.42h99.12A54.15,54.15,0,0,0,108.56,54.28Z"/></g></g></svg>`
             },
             {
                 NAME: 'STAR',
                 WIDTH: 108.67,
-                H_MULTIPLE: 0.645,
+                H_MULTIPLE: 0.856,
                 GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" width="108.67" height="70.98" viewBox="0 0 108.67 70.98"><defs><style>.cls-1{fill:#fecc80;}</style></defs><title>STAR_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M25.5,71a7.94,7.94,0,0,0-2.88-8.88l-19.33-14A7.94,7.94,0,0,1,8,33.7h23.9a7.94,7.94,0,0,0,7.55-5.49L46.78,5.49a7.94,7.94,0,0,1,15.1,0l7.39,22.72a7.94,7.94,0,0,0,7.55,5.49h23.89a7.94,7.94,0,0,1,4.67,14.36l-19.33,14A8,8,0,0,0,83.16,71"/></g></g></svg>`
             },
         ]
@@ -85,9 +85,27 @@ export default {
             {
                 NAME: 'LASHES',
                 WIDTH: 167.08,
-                H_MULTIPLE: 0.25,
+                H_MULTIPLE: 0.405,
                 GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="167.08" height="24.3" viewBox="0 0 167.08 24.3"><defs><style>.cls-1{fill:${colour};}</style></defs><title>EYES_FEMALE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M165.91,1.89c-1.84,1.72-6.28,1.58-10,1.08a12.14,12.14,0,1,0,4.2,9.18c0-.24,0-.47,0-.7C164.86,11,169.24-1.23,165.91,1.89Z"/><path class="cls-1" d="M19.08,0a12.14,12.14,0,0,0-7.95,3c-3.69.5-8.13.64-10-1.08C-2.16-1.23,2.21,11,7,11.45c0,.23,0,.46,0,.7A12.15,12.15,0,1,0,19.08,0Z"/></g></g></svg>`
             },
+        ]
+    },
+
+    MOUTH: {
+        OPTIONS : [
+            {
+                NAME: 'OPEN',
+                WIDTH: 115.4,
+                H_MULTIPLE: 0.57,
+                GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" width="115.4" height="44.37" viewBox="0 0 115.4 44.37"><defs><style>.cls-1{fill:#e3795b;}.cls-2{fill:#be583a;}.cls-3{fill:#fff;}</style></defs><title>MOUTH_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M97.61,32.13c11-8,17.79-19.26,17.79-31.74H0c0,12.8,7.18,24.32,18.63,32.36,10.27-6.41,24.4-10.37,40-10.37C73.73,22.38,87.44,26.09,97.61,32.13Z"/><path class="cls-2" d="M97.61,32.13c-10.17-6-23.88-9.75-39-9.75-15.61,0-29.74,4-40,10.37C28.91,40,42.63,44.37,57.7,44.37,73.19,44.37,87.25,39.71,97.61,32.13Z"/><path class="cls-3" d="M57.7,11.25c31.87,0,57.7-5,57.7-11.25H0C0,6.21,25.83,11.25,57.7,11.25Z"/></g></g></svg>`
+            },
+            {
+                NAME: 'CLOSED',
+                WIDTH: 90.35,
+                H_MULTIPLE: 0.6,
+                GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" width="90.35" height="14.94" viewBox="0 0 90.35 14.94"><defs><style>.cls-1{fill:none;stroke:#e3795b;stroke-miterlimit:10;stroke-width:4.71px;}</style></defs><title>SMILE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M1.22,2.12s39,23.55,88.12,0"/></g></g></svg>`
+            }
+            
         ]
     }
 }

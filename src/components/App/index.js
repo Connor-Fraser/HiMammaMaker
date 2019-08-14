@@ -15,7 +15,8 @@ export default class App extends React.Component {
 
       eyeColour: CONSTS.EYES.DEFAULT_COLOUR,
       eyeOption: CONSTS.EYES.OPTIONS[0],
-      
+      mouthOption: CONSTS.MOUTH.OPTIONS[0],
+
       shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR,
       shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR,
       shirtOption: CONSTS.SHIRT.OPTIONS[0]
@@ -25,14 +26,17 @@ export default class App extends React.Component {
     this.skinColourCallbacks = [this.onPrimarySkinChange];
     
     this.eyeColourSwatches = [CONSTS.EYES.COLOUR_SWATCH];
-    this.eyeColourCallbacks = [this.onEyeColourChange];
+    this.eyeColourCallbacks = [this.generateBaseCallback('eyeColour')];
     this.eyeOptions = [CONSTS.EYES.OPTIONS];
-    this.eyeOptionsCallbacks = [this.onEyeOptionChange];
+    this.eyeOptionsCallbacks = [this.generateBaseCallback('eyeOption')];
+
+    this.mouthOptions = [CONSTS.MOUTH.OPTIONS];
+    this.mouthOptionsCallbacks = [this.generateBaseCallback('mouthOption')];
     
     this.shirtColourSwatches = [CONSTS.SHIRT.COLOUR_SWATCH, CONSTS.SHIRT.CUFFS.COLOUR_SWATCH];
-    this.shirtColourCallbacks = [this.onShirtColourChange, this.onShirtCuffColourChange];
+    this.shirtColourCallbacks = [this.generateBaseCallback('shirtColour'), this.generateBaseCallback('shirtCuffColour')];
     this.shirtOptions = [CONSTS.SHIRT.OPTIONS];
-    this.shirtOptionsCallbacks = [this.onShirtOptionChange];
+    this.shirtOptionsCallbacks = [this.generateBaseCallback('shirtOption')];
   };
 
   onPrimarySkinChange = (newColour) => {
@@ -43,34 +47,13 @@ export default class App extends React.Component {
     });
   }
 
-  onEyeColourChange = (newColour) => {
-    this.setState({
-      eyeColour: newColour
-    });
-  }
+  generateBaseCallback = (stateField) => {
+    const newState = {};
 
-  onEyeOptionChange = (option) => {
-    this.setState({
-      eyeOption: option
-    });
-  }
-
-  onShirtColourChange = (newColour) => {
-    this.setState({
-      shirtColour: newColour
-    });
-  }
-
-  onShirtCuffColourChange = (newColour) => {
-    this.setState({
-      shirtCuffColour: newColour
-    });
-  }
-
-  onShirtOptionChange = (option) => {
-    this.setState({
-      shirtOption: option
-    });
+    return (newOption) => {
+      newState[stateField] = newOption;
+      this.setState(newState);
+    }
   }
   
   render() {
@@ -85,6 +68,7 @@ export default class App extends React.Component {
 
             eyeColour={ this.state.eyeColour }
             eyeOption={ this.state.eyeOption }
+            mouthOption= { this.state.mouthOption }
 
             shirtColour={ this.state.shirtColour } 
             shirtCuffsColour={ this.state.shirtCuffColour } 
@@ -109,6 +93,11 @@ export default class App extends React.Component {
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 
             onOptionsChanges={ this.shirtOptionsCallbacks }
+          />
+
+          <AvatarComponentSelector 
+            options={ this.mouthOptions } 
+            onOptionsChanges={ this.mouthOptionsCallbacks }
           />
         </div>
       </div>
