@@ -2,14 +2,14 @@ export default {
 
     SHIRT : {
         WIDTH: 304.34,
-        H_MULTIPLE: 0.712,
+        H_MULTIPLE: 0.714,
         DEFAULT_COLOUR: "#659ed5",
         COLOUR_SWATCH: ['#659ed5', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
         GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.34" height="143.57" viewBox="0 0 304.34 143.57"><defs><style>.cls-1{fill:${colour};}</style></defs><title>TSHIRT_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M304.34,104.3C304.34,55.46,259.94,0,198.12,0h-8.49c0,16.34-16.77,29.59-37.46,29.59S114.71,16.34,114.71,0h-8.49C44.4,0,0,55.46,0,104.3H47.19v39.27H257.06V104.3Z"/></g></g></svg>`,
 
         CUFFS: {
             WIDTH: 304.25,
-            H_MULTIPLE: 0.921,
+            H_MULTIPLE: 0.922,
             DEFAULT_COLOUR: "#476e93",
             COLOUR_SWATCH: ['#476e93', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
             GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.25" height="14.09" viewBox="0 0 304.25 14.09"><defs><style>.cls-1{fill:${colour};}</style></defs><title>CUFFS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><rect class="cls-1" width="47.19" height="14.09"/><rect class="cls-1" x="257.06" width="47.19" height="14.09"/></g></g></svg>`
@@ -67,7 +67,7 @@ export default {
 
         ARMS : {
             WIDTH: 286.34,
-            H_MULTIPLE: 0.946,
+            H_MULTIPLE: 0.95,
             GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="286.34" height="25.19" viewBox="0 0 286.34 25.19"><defs><style>.cls-1{fill:${colour};}</style></defs><title>ARMS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><rect class="cls-1" width="38.24" height="25.19"/><rect class="cls-1" x="248.1" width="38.24" height="25.19"/></g></g></svg>`
         }
     },
@@ -111,7 +111,7 @@ export default {
 
     HAIR: {
         DEFAULT_COLOUR: "#fcb900",
-        COLOUR_SWATCH: ['#659ed5', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+        COLOUR_SWATCH: ['#fcb900', '#659ed5', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
 
         EYEBROWS: {
             WIDTH: 164.49,

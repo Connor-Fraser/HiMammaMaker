@@ -48,11 +48,14 @@ export default class AvatarCanvas extends React.Component {
         if(this.props.backHairOption.GENERATE_SVG !== null) {
             this.drawSVG(this.props.backHairOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.backHairOption), this._getYPos(this.props.backHairOption.H_MULTIPLE), ctx);
         }
-        this.drawSkin(ctx);
-        this.drawFace(ctx);
-        this.drawShirt(ctx);
 
-        console.log(this.props.bangOption)
+        //Timeout used to prevent race condition that results in back hair getting drawn on top of face
+        setTimeout(() => {
+            this.drawSkin(ctx);
+            this.drawFace(ctx);
+            this.drawShirt(ctx);
+        },10);
+        
     };
 
     drawSkin(ctx) {

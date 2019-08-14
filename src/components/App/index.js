@@ -29,7 +29,7 @@ export default class App extends React.Component {
     this.hairColourSwatches = [CONSTS.HAIR.COLOUR_SWATCH];
     this.hairColourCallbacks = [this.generateBaseCallback('hairColour')];
     this.hairOptions = [CONSTS.HAIR.BACK_HAIR_OPTIONS, CONSTS.HAIR.BANG_OPTIONS];
-    this.hairCallbacks = [this.generateBaseCallback('backHairOption'), this.generateBaseCallback('bangOption')]
+    this.hairOptionsCallbacks = [this.generateBaseCallback('backHairOption'), this.generateBaseCallback('bangOption')]
 
     this.skinColourSwatches = [CONSTS.SKIN.COLOUR_SWATCH];
     this.skinColourCallbacks = [this.onPrimarySkinChange];
@@ -94,6 +94,13 @@ export default class App extends React.Component {
             onColourChanges={ this.skinColourCallbacks }
           />
 
+          <AvatarComponentSelector
+            colourSwatches={ this.hairColourSwatches }
+            onColourChanges={ this.hairColourCallbacks }
+            options={ this.hairOptions }
+            onOptionsChanges={ this.hairOptionsCallbacks } 
+          />
+
           <AvatarComponentSelector 
             colourSwatches={ this.eyeColourSwatches } 
             onColourChanges={ this.eyeColourCallbacks } 
@@ -102,15 +109,15 @@ export default class App extends React.Component {
           />
 
           <AvatarComponentSelector 
+            options={ this.mouthOptions } 
+            onOptionsChanges={ this.mouthOptionsCallbacks }
+          />
+
+          <AvatarComponentSelector 
             colourSwatches={ this.shirtColourSwatches } 
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 
             onOptionsChanges={ this.shirtOptionsCallbacks }
-          />
-
-          <AvatarComponentSelector 
-            options={ this.mouthOptions } 
-            onOptionsChanges={ this.mouthOptionsCallbacks }
           />
         </div>
       </div>

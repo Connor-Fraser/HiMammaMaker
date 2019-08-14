@@ -25,6 +25,9 @@ export default class AvatarComponentSelector extends React.Component {
         let colourSelectorSectionComputedStyles;
         let colourSelectors;
 
+        let optionSelectorsSectionComputedStyles;
+        let optionSelectors;
+
         //For multiple colours in one selector, need to set a grid-template-columns where they are all the same percentage
         //sectionColumnsTemplate amount is the % and sectionColumnsTemplateString is the grid-template-columns value passed to the style prop
         if(this.props.colourSwatches) {
@@ -50,8 +53,27 @@ export default class AvatarComponentSelector extends React.Component {
             componentSelectorComputedStyles.gridTemplateColumns = '0% 100%'
         }
 
+        //For multiple options in one selector, need to set a grid-template-columns where they are all the same percentage
+        //sectionColumnsTemplate amount is the % and sectionColumnsTemplateString is the grid-template-columns value passed to the style prop
         if(this.props.options) {
+            const sectionColumnsTemplateAmount = `${ 100/this.props.options.length}%`;
+            let sectionColumnsTemplateString = '';
 
+            optionSelectors = [];
+            for(let i=0; i<this.props.options.length; i++) {
+                optionSelectors.push(
+                    <OptionSelector  
+                        key={ i+999 }
+                        options={ this.props.options[i] } 
+                        onOptionChange={ this.props.onOptionsChanges[i] }
+                    />
+                );
+                sectionColumnsTemplateString += sectionColumnsTemplateAmount;
+            };
+
+            optionSelectorsSectionComputedStyles = {
+                gridTemplateColumns: sectionColumnsTemplateString
+            }
         } else {
             componentSelectorComputedStyles.gridTemplateColumns = '100% 0%'
         }
@@ -67,10 +89,10 @@ export default class AvatarComponentSelector extends React.Component {
                     <div className="Colour-Selector-Section"/>
                 }
                 
-                { this.props.options ? 
-                    <div className="Option-List">
-                        <OptionSelector options={this.props.options[0]} onOptionChange={this.props.onOptionsChanges[0]} />
-                    </div> 
+                { this.props.options ?
+                    <div className="Option-List" style={ optionSelectorsSectionComputedStyles }>
+                        { optionSelectors }
+                    </div>
                     : 
                     <div className="Option-List"/>
                 }
