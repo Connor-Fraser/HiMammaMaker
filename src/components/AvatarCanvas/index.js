@@ -15,8 +15,12 @@ import './AvatarCanvas.css';
 
 export default class AvatarCanvas extends React.Component {
 
-    _getXPos(wMultiple) {
-        return wMultiple*this.canvas.width;
+    _getXPos(componentConstMetadata) {
+        //if svg width is provded, assumption is it's centered
+        if(componentConstMetadata.WIDTH) {
+            return (this.canvas.width/2) - (componentConstMetadata.WIDTH/2)
+        }
+        return componentConstMetadata.W_MULTIPLE*this.canvas.width;
     }
 
     _getYPos(hMultiple) {
@@ -43,25 +47,25 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawSkin(ctx) {
-        this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NECK.W_MULTIPLE), this._getYPos(CONSTS.SKIN.NECK.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.EARS.W_MULTIPLE), this._getYPos(CONSTS.SKIN.EARS.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.FACE.W_MULTIPLE), this._getYPos(CONSTS.SKIN.FACE.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NOSE.W_MULTIPLE), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.ARMS.W_MULTIPLE), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NECK), this._getYPos(CONSTS.SKIN.NECK.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.EARS), this._getYPos(CONSTS.SKIN.EARS.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.FACE), this._getYPos(CONSTS.SKIN.FACE.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NOSE), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.ARMS), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
     };
 
     drawFace(ctx) {
         if(this.props.eyeOption) {
-            this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption.W_MULTIPLE), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
+            this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
         }
     }
 
     drawShirt(ctx) {
-        this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour), this._getXPos(CONSTS.SHIRT.W_MULTIPLE), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour), this._getXPos(CONSTS.SHIRT.CUFFS.W_MULTIPLE), this._getYPos(CONSTS.SHIRT.CUFFS.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour), this._getXPos(CONSTS.SHIRT), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour), this._getXPos(CONSTS.SHIRT.CUFFS), this._getYPos(CONSTS.SHIRT.CUFFS.H_MULTIPLE), ctx);
         
         if(this.props.shirtOption.GENERATE_SVG !== null) {
-            this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption.W_MULTIPLE), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
+            this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
         }
     };
 

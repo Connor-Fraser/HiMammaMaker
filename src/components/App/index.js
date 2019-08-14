@@ -14,7 +14,7 @@ export default class App extends React.Component {
       secondarySkinColour: CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR,
 
       eyeColour: CONSTS.EYES.DEFAULT_COLOUR,
-      eyeOption: CONSTS.EYES.OPTIONS[1],
+      eyeOption: CONSTS.EYES.OPTIONS[0],
       
       shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR,
       shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR,
