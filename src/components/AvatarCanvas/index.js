@@ -5,6 +5,8 @@ import './AvatarCanvas.css';
 /*
     ==== Props ====
     hairColour: hex string denoting hair colour
+    backHairOption: option for the large hair drawn behind the face from the consts
+    bangOption: option for the hair drawn on the face from consts
     primarySkinColour: hex string denoting primary skin tone
     secondarySkinColour: hex string denoting secondary skin tone
     eyeColour: hex string denoting eye colour
@@ -43,9 +45,14 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawAvatar(ctx) {
+        if(this.props.backHairOption.GENERATE_SVG !== null) {
+            this.drawSVG(this.props.backHairOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.backHairOption), this._getYPos(this.props.backHairOption.H_MULTIPLE), ctx);
+        }
         this.drawSkin(ctx);
         this.drawFace(ctx);
         this.drawShirt(ctx);
+
+        console.log(this.props.bangOption)
     };
 
     drawSkin(ctx) {
@@ -59,8 +66,10 @@ export default class AvatarCanvas extends React.Component {
     drawFace(ctx) {
         this.drawSVG(this.props.mouthOption.GENERATE_SVG(), this._getXPos(this.props.mouthOption), this._getYPos(this.props.mouthOption.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.HAIR.EYEBROWS.GENERATE_SVG(this.props.hairColour), this._getXPos(CONSTS.HAIR.EYEBROWS), this._getYPos(CONSTS.HAIR.EYEBROWS.H_MULTIPLE), ctx);
-        if(this.props.eyeOption) {
-            this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
+        this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
+
+        if(this.props.bangOption.GENERATE_SVG !== null) {
+            this.drawSVG(this.props.bangOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.bangOption), this._getYPos(this.props.bangOption.H_MULTIPLE), ctx);
         }
     }
 

@@ -11,6 +11,8 @@ export default class App extends React.Component {
 
     this.state = {
       hairColour: CONSTS.HAIR.DEFAULT_COLOUR,
+      backHairOption: CONSTS.HAIR.BACK_HAIR_OPTIONS[0],
+      bangOption: CONSTS.HAIR.BANG_OPTIONS[0],
 
       primarySkinColour: CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR,
       secondarySkinColour: CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR,
@@ -23,6 +25,11 @@ export default class App extends React.Component {
       shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR,
       shirtOption: CONSTS.SHIRT.OPTIONS[0]
     };
+
+    this.hairColourSwatches = [CONSTS.HAIR.COLOUR_SWATCH];
+    this.hairColourCallbacks = [this.generateBaseCallback('hairColour')];
+    this.hairOptions = [CONSTS.HAIR.BACK_HAIR_OPTIONS, CONSTS.HAIR.BANG_OPTIONS];
+    this.hairCallbacks = [this.generateBaseCallback('backHairOption'), this.generateBaseCallback('bangOption')]
 
     this.skinColourSwatches = [CONSTS.SKIN.COLOUR_SWATCH];
     this.skinColourCallbacks = [this.onPrimarySkinChange];
@@ -65,7 +72,9 @@ export default class App extends React.Component {
         
         <div className="Avatar-Canvas">
           <AvatarCanvas 
-            hairColour={ this.state.hairColour } 
+            hairColour={ this.state.hairColour }
+            backHairOption={ this.state.backHairOption }
+            bangOption={ this.state.bangOption }
 
             primarySkinColour={ this.state.primarySkinColour }
             secondarySkinColour={ this.state.secondarySkinColour }
