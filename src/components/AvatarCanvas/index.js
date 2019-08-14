@@ -4,6 +4,7 @@ import './AvatarCanvas.css';
 
 /*
     ==== Props ====
+    hairColour: hex string denoting hair colour
     primarySkinColour: hex string denoting primary skin tone
     secondarySkinColour: hex string denoting secondary skin tone
     eyeColour: hex string denoting eye colour
@@ -57,6 +58,7 @@ export default class AvatarCanvas extends React.Component {
 
     drawFace(ctx) {
         this.drawSVG(this.props.mouthOption.GENERATE_SVG(), this._getXPos(this.props.mouthOption), this._getYPos(this.props.mouthOption.H_MULTIPLE), ctx);
+        this.drawSVG(CONSTS.HAIR.EYEBROWS.GENERATE_SVG(this.props.hairColour), this._getXPos(CONSTS.HAIR.EYEBROWS), this._getYPos(CONSTS.HAIR.EYEBROWS.H_MULTIPLE), ctx);
         if(this.props.eyeOption) {
             this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
         }

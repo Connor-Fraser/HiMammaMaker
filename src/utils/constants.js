@@ -107,5 +107,16 @@ export default {
             }
             
         ]
+    },
+
+    HAIR: {
+        DEFAULT_COLOUR: "#659ed5",
+        COLOUR_SWATCH: ['#659ed5', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+
+        EYEBROWS: {
+            WIDTH: 164.49,
+            H_MULTIPLE: 0.365,
+            GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="164.49" height="9.51" viewBox="0 0 164.49 9.51"><defs><style>.cls-1{fill:${colour};}</style></defs><title>EYEBROWS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M0,9.51c20.57-7.15,29.37-1.42,34.14,0C18.55-11.89,0,9.51,0,9.51Z"/><path class="cls-1" d="M130.35,9.51c4.77-1.42,13.57-7.15,34.14,0C164.49,9.51,146-11.89,130.35,9.51Z"/></g></g></svg>`
+        }
     }
 }

@@ -10,6 +10,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
+      hairColour: CONSTS.HAIR.DEFAULT_COLOUR,
+
       primarySkinColour: CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR,
       secondarySkinColour: CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR,
 
@@ -63,12 +65,14 @@ export default class App extends React.Component {
         
         <div className="Avatar-Canvas">
           <AvatarCanvas 
+            hairColour={ this.state.hairColour } 
+
             primarySkinColour={ this.state.primarySkinColour }
             secondarySkinColour={ this.state.secondarySkinColour }
 
             eyeColour={ this.state.eyeColour }
             eyeOption={ this.state.eyeOption }
-            mouthOption= { this.state.mouthOption }
+            mouthOption={ this.state.mouthOption }
 
             shirtColour={ this.state.shirtColour } 
             shirtCuffsColour={ this.state.shirtCuffColour } 
