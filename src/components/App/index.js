@@ -10,19 +10,19 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      hairColour: CONSTS.HAIR.DEFAULT_COLOUR,
+      hairColour: CONSTS.HAIR.COLOUR_SWATCH[0],
       backHairOption: CONSTS.HAIR.BACK_HAIR_OPTIONS[0],
       bangOption: CONSTS.HAIR.BANG_OPTIONS[0],
 
-      primarySkinColour: CONSTS.SKIN.PRIMARY_DEFAULT_COLOUR,
-      secondarySkinColour: CONSTS.SKIN.SECONDARY_DEFAULT_COLOUR,
+      primarySkinColour: CONSTS.SKIN.COLOUR_SWATCH[0],
+      secondarySkinColour: CONSTS.SKIN.SECONDARY_COLOUR_SWATCH[0],
 
-      eyeColour: CONSTS.EYES.DEFAULT_COLOUR,
+      eyeColour: CONSTS.EYES.COLOUR_SWATCH[0],
       eyeOption: CONSTS.EYES.OPTIONS[0],
       mouthOption: CONSTS.MOUTH.OPTIONS[0],
 
-      shirtColour: CONSTS.SHIRT.DEFAULT_COLOUR,
-      shirtCuffColour: CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR,
+      shirtColour: CONSTS.SHIRT.COLOUR_SWATCH[0],
+      shirtCuffColour: CONSTS.SHIRT.CUFFS.COLOUR_SWATCH[0],
       shirtOption: CONSTS.SHIRT.OPTIONS[0]
     };
 

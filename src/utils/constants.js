@@ -3,15 +3,13 @@ export default {
     SHIRT : {
         WIDTH: 304.34,
         H_MULTIPLE: 0.714,
-        DEFAULT_COLOUR: "#659ed5",
-        COLOUR_SWATCH: ['#659ed5', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+        COLOUR_SWATCH: ['#6a55a1', '#48396d' ,'#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#Cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
         GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.34" height="143.57" viewBox="0 0 304.34 143.57"><defs><style>.cls-1{fill:${colour};}</style></defs><title>TSHIRT_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M304.34,104.3C304.34,55.46,259.94,0,198.12,0h-8.49c0,16.34-16.77,29.59-37.46,29.59S114.71,16.34,114.71,0h-8.49C44.4,0,0,55.46,0,104.3H47.19v39.27H257.06V104.3Z"/></g></g></svg>`,
 
         CUFFS: {
             WIDTH: 304.25,
             H_MULTIPLE: 0.922,
-            DEFAULT_COLOUR: "#476e93",
-            COLOUR_SWATCH: ['#476e93', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+            COLOUR_SWATCH: ['#48396d','#6a55a1','#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#Cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
             GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.25" height="14.09" viewBox="0 0 304.25 14.09"><defs><style>.cls-1{fill:${colour};}</style></defs><title>CUFFS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><rect class="cls-1" width="47.19" height="14.09"/><rect class="cls-1" x="257.06" width="47.19" height="14.09"/></g></g></svg>`
         },
 
@@ -36,14 +34,12 @@ export default {
     },
 
     SKIN : {
-        PRIMARY_DEFAULT_COLOUR: '#fde1cc',
-        SECONDARY_DEFAULT_COLOUR: '#eabcb2',
-        COLOUR_SWATCH: ['#fde1cc', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
-        SECONDARY_COLOUR_SWATCH: ['#eabcb2', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+        COLOUR_SWATCH: ['#fce1cc', '#fddbcc', '#e5bda7', '#ca9f95', '#7c6a65'],
+        SECONDARY_COLOUR_SWATCH: ['#e3a694', '#e3a694', '#b78d83', '#a3776b', '#574d4c'],
 
         NECK: {
             WIDTH: 81.47,
-            H_MULTIPLE: 0.711,
+            H_MULTIPLE: 0.714,
             GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="81.47" height="40.73" viewBox="0 0 81.47 40.73"><defs><style>.cls-1{fill:${colour};}</style></defs><title>NECK_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M27.39,0H0A40.73,40.73,0,0,0,40.73,40.73,40.73,40.73,0,0,0,81.47,0H54.08"/></g></g></svg>`
         },
 
@@ -73,8 +69,7 @@ export default {
     },
 
     EYES : {
-        DEFAULT_COLOUR: '#5c433c',
-        COLOUR_SWATCH: ['#5c433c', '#fcb900', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+        COLOUR_SWATCH: ['#6a55a1', '#48396d' ,'#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#Cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
         OPTIONS : [
             {
                 NAME: 'NORMAL',
@@ -102,7 +97,7 @@ export default {
             {
                 NAME: 'CLOSED',
                 WIDTH: 90.35,
-                H_MULTIPLE: 0.6,
+                H_MULTIPLE: 0.57,
                 GENERATE_SVG: () => `<svg xmlns="http://www.w3.org/2000/svg" width="90.35" height="14.94" viewBox="0 0 90.35 14.94"><defs><style>.cls-1{fill:none;stroke:#e3795b;stroke-miterlimit:10;stroke-width:4.71px;}</style></defs><title>SMILE_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M1.22,2.12s39,23.55,88.12,0"/></g></g></svg>`
             }
             
@@ -110,8 +105,7 @@ export default {
     },
 
     HAIR: {
-        DEFAULT_COLOUR: "#fcb900",
-        COLOUR_SWATCH: ['#fcb900', '#659ed5', '#7bdcb5', '#00d084', '#8ed1fc', '#0693e3', '#abb8c3', '#eb144c', '#f78da7', '#9900ef'],
+        COLOUR_SWATCH: ['#fec971', '#deb487', '#d4634A', '#89685c', '#4d4d4d'],
 
         EYEBROWS: {
             WIDTH: 164.49,
