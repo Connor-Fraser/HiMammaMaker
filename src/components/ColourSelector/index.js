@@ -29,7 +29,7 @@ export default class ColourSelector extends React.Component {
             this.setState({
                 colour: newColour.hex,
                 clicked: false
-            }, this.props.onColourChange(this.state.colour));
+            }, function(){ this.props.onColourChange(this.state.colour) });
         }
 
         this._colourHoverHandler = (newColour) => {

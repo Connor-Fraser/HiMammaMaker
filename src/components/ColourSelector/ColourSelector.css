@@ -25,6 +25,7 @@
 
 .circle-picker {
     background-color: lightsteelblue;
+    border-radius: 5px;
     padding-top: 10px;
     padding-left: 10px;
 }
