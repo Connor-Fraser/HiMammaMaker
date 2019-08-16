@@ -1,6 +1,6 @@
 import React from 'react';
 import ColourSelector from '../ColourSelector';
-import OptionSelector from '../OptionSelector'
+import OptionSelector from '../OptionSelector';
 import './AvatarComponentSelector.css';
 
 /*
@@ -9,6 +9,7 @@ import './AvatarComponentSelector.css';
     onColourChanges: array of callback functions for when colours gets changed
     options: array of options arrays (the first of which is the default selection)
     onOptionsChanges: array of callback functions for when an option gets changed
+    circlePicker: use circle pickers instead of twitter pickers for colour 
 */
 
 export default class AvatarComponentSelector extends React.Component {
@@ -41,6 +42,7 @@ export default class AvatarComponentSelector extends React.Component {
                         key={ i }
                         colourSwatch={ this.props.colourSwatches[i] } 
                         onColourChange={ this.props.onColourChanges[i] }
+                        circlePicker={ this.props.circlePicker}
                     />
                 );
                 sectionColumnsTemplateString += sectionColumnsTemplateAmount;

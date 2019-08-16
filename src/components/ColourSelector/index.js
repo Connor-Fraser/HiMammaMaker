@@ -1,5 +1,5 @@
 import React from 'react';
-import { TwitterPicker } from 'react-color';
+import { TwitterPicker, CirclePicker } from 'react-color';
 import './ColourSelector.css';
 
 /*
@@ -7,6 +7,7 @@ import './ColourSelector.css';
     colourSwatch: colour swatch to be displayed for selection (first considered default)
     onColourChange: callback on completed colour change
     width: %of parent width colour Selector should take
+    circlePicker: boolean denoting usage of CirclePicker instead of default
 */
 
 export default class ColourSelector extends React.Component {
@@ -45,6 +46,19 @@ export default class ColourSelector extends React.Component {
         };
 
         if(this.state.clicked) {
+            if(this.props.circlePicker) {
+                return (
+                    <div className="Colour-Selector-Clicked" style={computedStyle}>
+                         <CirclePicker 
+                            color={this.state.colour} 
+                            colors={this.props.colourSwatch}
+                            onChangeComplete={this._colourChangeHandler} 
+                            onSwatchHover={this._colourHoverHandler}
+                            triangle="hide" />
+                    </div> 
+                );
+            }
+
             return (
                    <div className="Colour-Selector-Clicked" style={computedStyle}>
                         <TwitterPicker 

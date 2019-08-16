@@ -16,7 +16,7 @@ export default {
         OPTIONS: [
             {
                 NAME: 'NONE',
-                GENERATE_SVG: null
+                GENERATE_SVG: () => null
             },
             {
                 NAME: 'BALL',
@@ -116,7 +116,7 @@ export default {
         BACK_HAIR_OPTIONS: [
             {
                 NAME: 'NONE',
-                GENERATE_SVG: null
+                GENERATE_SVG: () => null
             },
             {
                 NAME: 'HAIR1',
@@ -165,7 +165,7 @@ export default {
         BANG_OPTIONS: [
             {
                 NAME: 'NONE',
-                GENERATE_SVG: null
+                GENERATE_SVG: () => null
             },
             {
                 NAME: 'BANG1',

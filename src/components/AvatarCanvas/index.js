@@ -42,9 +42,7 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawAvatar(ctx) {
-        if(this.props.backHairOption.GENERATE_SVG !== null) {
-            this.drawSVG(this.props.backHairOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.backHairOption.WIDTH), this._getYPos(this.props.backHairOption.H_MULTIPLE), ctx);
-        }
+        this.drawSVG(this.props.backHairOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.backHairOption.WIDTH), this._getYPos(this.props.backHairOption.H_MULTIPLE), ctx);
 
         //Timeout used to prevent race condition that results in back hair getting drawn on top of face
         setTimeout(() => {
@@ -67,22 +65,20 @@ export default class AvatarCanvas extends React.Component {
         this.drawSVG(this.props.mouthOption.GENERATE_SVG(), this._getXPos(this.props.mouthOption.WIDTH), this._getYPos(this.props.mouthOption.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.HAIR.EYEBROWS.GENERATE_SVG(this.props.hairColour), this._getXPos(CONSTS.HAIR.EYEBROWS.WIDTH), this._getYPos(CONSTS.HAIR.EYEBROWS.H_MULTIPLE), ctx);
         this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption.WIDTH), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
-
-        if(this.props.bangOption.GENERATE_SVG !== null) {
-            this.drawSVG(this.props.bangOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.bangOption.WIDTH), this._getYPos(this.props.bangOption.H_MULTIPLE), ctx);
-        }
+        this.drawSVG(this.props.bangOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.bangOption.WIDTH), this._getYPos(this.props.bangOption.H_MULTIPLE), ctx);
     }
 
     drawShirt(ctx) {
         this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour), this._getXPos(CONSTS.SHIRT.WIDTH), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour), this._getXPos(CONSTS.SHIRT.CUFFS.WIDTH), this._getYPos(CONSTS.SHIRT.CUFFS.H_MULTIPLE), ctx);
-        
-        if(this.props.shirtOption.GENERATE_SVG !== null) {
-            this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption.WIDTH), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
-        }
+        this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption.WIDTH), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
     };
 
     drawSVG(svgString, x, y, ctx) {
+        if(!svgString) {
+            return
+        }
+
         const svg64 = btoa(svgString);
         const b64Start = 'data:image/svg+xml;base64,';
         const image64 = b64Start + svg64;

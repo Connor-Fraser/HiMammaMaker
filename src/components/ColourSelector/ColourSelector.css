@@ -22,3 +22,9 @@
     position: relative;
     top: 6vh;
 }
+
+.circle-picker {
+    background-color: lightsteelblue;
+    padding-top: 10px;
+    padding-left: 10px;
+}

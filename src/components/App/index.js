@@ -92,6 +92,7 @@ export default class App extends React.Component {
           <AvatarComponentSelector
             colourSwatches={ this.skinColourSwatches }
             onColourChanges={ this.skinColourCallbacks }
+            circlePicker={ true }
           />
 
           <AvatarComponentSelector
