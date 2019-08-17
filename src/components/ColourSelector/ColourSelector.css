@@ -11,13 +11,24 @@
     border-width: 2px;
 }
 
-.Colour-Selector-Clicked {
+.Colour-Selector-Open {
     border-style: solid;
     border-width: 2px;
     height: 100%;
+    z-index: 2;
 }
 
-.Colour-Selector-Clicked > div {
+.Cover {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.Colour-Selector-Open > div {
     left: -30%;
     position: relative;
     top: 6vh;

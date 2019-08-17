@@ -16,19 +16,19 @@ export default class ColourSelector extends React.Component {
 
         this.state = {
             colour: this.props.colourSwatch[0],
-            clicked: false
+            displayPicker: false
         }
 
         this._clickHandler = () => {
             this.setState({
-                clicked: true
+                displayPicker: !this.state.displayPicker
             });
         }
 
         this._colourChangeHandler = (newColour) => {
             this.setState({
                 colour: newColour.hex,
-                clicked: false
+                displayPicker: false
             }, function(){ this.props.onColourChange(this.state.colour) });
         }
 
@@ -45,30 +45,30 @@ export default class ColourSelector extends React.Component {
             width: this.props.width
         };
 
-        if(this.state.clicked) {
-            if(this.props.circlePicker) {
-                return (
-                    <div className="Colour-Selector-Clicked" style={computedStyle}>
-                         <CirclePicker 
-                            color={this.state.colour} 
-                            colors={this.props.colourSwatch}
-                            onChangeComplete={this._colourChangeHandler} 
-                            onSwatchHover={this._colourHoverHandler}
-                            triangle="hide" />
-                    </div> 
-                );
-            }
+        const picker = this.props.circlePicker ? 
+    
+        <div className="Colour-Selector-Open" style={computedStyle}>
+            <span className="Cover" onClick={this._clickHandler}/>
+            <CirclePicker
+                color={this.state.colour} 
+                colors={this.props.colourSwatch}
+                onChangeComplete={this._colourChangeHandler} 
+                onSwatchHover={this._colourHoverHandler}
+                triangle="hide" />
+        </div>    
+        :
+        <div className="Colour-Selector-Open" style={computedStyle}>
+            <span className="Cover" onClick={this._clickHandler}/>
+            <TwitterPicker
+                color={this.state.colour} 
+                colors={this.props.colourSwatch}
+                onChangeComplete={this._colourChangeHandler} 
+                onSwatchHover={this._colourHoverHandler}
+                triangle="hide" />
+        </div>;
 
-            return (
-                   <div className="Colour-Selector-Clicked" style={computedStyle}>
-                        <TwitterPicker
-                            color={this.state.colour} 
-                            colors={this.props.colourSwatch}
-                            onChangeComplete={this._colourChangeHandler} 
-                            onSwatchHover={this._colourHoverHandler}
-                            triangle="hide" />
-                    </div> 
-            );
+        if(this.state.displayPicker) {
+            return picker;
         }
 
         return (
