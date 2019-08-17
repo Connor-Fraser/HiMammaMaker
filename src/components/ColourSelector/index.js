@@ -61,7 +61,7 @@ export default class ColourSelector extends React.Component {
 
             return (
                    <div className="Colour-Selector-Clicked" style={computedStyle}>
-                        <TwitterPicker 
+                        <TwitterPicker
                             color={this.state.colour} 
                             colors={this.props.colourSwatch}
                             onChangeComplete={this._colourChangeHandler} 

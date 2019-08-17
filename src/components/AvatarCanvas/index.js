@@ -44,11 +44,14 @@ export default class AvatarCanvas extends React.Component {
     drawAvatar(ctx) {
         this.drawSVG(this.props.backHairOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.backHairOption.WIDTH), this._getYPos(this.props.backHairOption.H_MULTIPLE), ctx);
 
-        //Timeout used to prevent race condition that results in back hair getting drawn on top of face
+        //Timeouts used to prevent race condition that results in back hair getting drawn on top of face (canvas draw functions are synchronous, but results tend to not be)
+        //promise-based version of drawSVG function did not work
         setTimeout(() => {
             this.drawSkin(ctx);
-            this.drawFace(ctx);
-            this.drawShirt(ctx);
+            setTimeout(() => {
+                this.drawFace(ctx);
+                this.drawShirt(ctx);
+            },10);
         },10);
         
     };
@@ -57,8 +60,10 @@ export default class AvatarCanvas extends React.Component {
         this.drawSVG(CONSTS.SKIN.NECK.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NECK.WIDTH), this._getYPos(CONSTS.SKIN.NECK.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.SKIN.EARS.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.EARS.WIDTH), this._getYPos(CONSTS.SKIN.EARS.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.SKIN.FACE.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.FACE.WIDTH), this._getYPos(CONSTS.SKIN.FACE.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NOSE.WIDTH), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
-        this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.ARMS.WIDTH), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
+        setTimeout(() => {
+            this.drawSVG(CONSTS.SKIN.NOSE.GENERATE_SVG(this.props.secondarySkinColour), this._getXPos(CONSTS.SKIN.NOSE.WIDTH), this._getYPos(CONSTS.SKIN.NOSE.H_MULTIPLE), ctx);
+            this.drawSVG(CONSTS.SKIN.ARMS.GENERATE_SVG(this.props.primarySkinColour), this._getXPos(CONSTS.SKIN.ARMS.WIDTH), this._getYPos(CONSTS.SKIN.ARMS.H_MULTIPLE), ctx);
+        }, 10);
     };
 
     drawFace(ctx) {
