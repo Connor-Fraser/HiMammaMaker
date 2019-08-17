@@ -1,5 +1,4 @@
-.Avatar-Component-Selector {
-    /* border-radius: 25%; */
+.Avatar-Component-Selector-Main {
     display: grid;
     /* grid-template-columns is set programatically in the index.js file */
     height: 100%;
@@ -13,7 +12,7 @@
 }
 
 .Option-List {
-    background-color: lightsalmon;
+    background-color: #34b9c6;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

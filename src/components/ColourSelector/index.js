@@ -31,12 +31,6 @@ export default class ColourSelector extends React.Component {
                 displayPicker: false
             }, function(){ this.props.onColourChange(this.state.colour) });
         }
-
-        this._colourHoverHandler = (newColour) => {
-            this.setState({
-                colour: newColour.hex
-            });
-        }
     }; 
 
     render() {
@@ -48,22 +42,20 @@ export default class ColourSelector extends React.Component {
         const picker = this.props.circlePicker ? 
     
         <div className="Colour-Selector-Open" style={computedStyle}>
-            <span className="Cover" onClick={this._clickHandler}/>
+            <span className="Colour-Selector-Cover" onClick={this._clickHandler}/>
             <CirclePicker
                 color={this.state.colour} 
                 colors={this.props.colourSwatch}
-                onChangeComplete={this._colourChangeHandler} 
-                onSwatchHover={this._colourHoverHandler}
+                onChangeComplete={this._colourChangeHandler}
                 triangle="hide" />
         </div>    
         :
         <div className="Colour-Selector-Open" style={computedStyle}>
-            <span className="Cover" onClick={this._clickHandler}/>
+            <span className="Colour-Selector-Cover" onClick={this._clickHandler}/>
             <TwitterPicker
                 color={this.state.colour} 
                 colors={this.props.colourSwatch}
-                onChangeComplete={this._colourChangeHandler} 
-                onSwatchHover={this._colourHoverHandler}
+                onChangeComplete={this._colourChangeHandler}
                 triangle="hide" />
         </div>;
 

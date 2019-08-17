@@ -81,7 +81,7 @@ export default class AvatarComponentSelector extends React.Component {
         }
 
         return(
-            <div className="Avatar-Component-Selector" style={ componentSelectorComputedStyles }>
+            <div className="Avatar-Component-Selector-Main" style={ componentSelectorComputedStyles }>
 
                 {this.props.colourSwatches ? 
                     <div className="Colour-Selector-Section" style={ colourSelectorSectionComputedStyles }>
