@@ -2,6 +2,7 @@
     align-items: center;
     background-color: whitesmoke;
     display: flex;
+    flex-direction: column;
     height: 100%;
     justify-content: center;
 }
@@ -11,6 +12,28 @@
     height: 500px;
 }
 
-.Svgs {
-    display: none;
+.Canvas-Save-Button {
+    margin-top: 25px;
+    position: relative;
+    vertical-align: top;
+    width: 100px;
+    height: 60px;
+    padding: 0;
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #16a085;
+    border: 0;
+    border-bottom: 2px solid #14947b;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #14947b;
+    box-shadow: inset 0 -2px #14947b;
+}
+
+.Canvas-Save-Button:active {
+    box-shadow: none;
+    outline: none;
+    top: 1px;
+    -webkit-box-shadow: none;
 }

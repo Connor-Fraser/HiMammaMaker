@@ -96,6 +96,13 @@ export default class AvatarCanvas extends React.Component {
         img.src = image64;
     }
 
+    saveImage = () => {        
+        const link = document.createElement('a');
+        link.href = this.canvas.toDataURL();
+        link.download = "HiMammaAvatar.png";
+        link.click();
+    }
+
     componentDidUpdate() {
         this.clearAndDraw();   
     }
@@ -109,6 +116,7 @@ export default class AvatarCanvas extends React.Component {
         return (
             <div className="Canvas-Wrapper">
                 <canvas className="Canvas" ref={canvas => this.canvas = canvas }/>
+                <button className='Canvas-Save-Button' onClick={ this.saveImage }>Save</button>
             </div>
         );
     };
