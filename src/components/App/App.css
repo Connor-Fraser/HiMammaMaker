@@ -1,14 +1,25 @@
-.App {
-  display: grid;
-  grid-template-columns: 60vw 40vw;
-  grid-template-rows: 10vh 15vh 75vh;
-  grid-template-areas: 'header header' 'canvas selector1' 'canvas selector2' 'canvas selector3' 'canvas selector4' 'canvas selector5' 'canvas selector6';
-  background-color:#0F8790;
+/* normal layout */
+@media(min-width:801px) {
+  .App {
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: 10vh 15vh 75vh;
+    grid-template-areas: 'header header' 'canvas selector1' 'canvas selector2' 'canvas selector3' 'canvas selector4' 'canvas selector5' 'canvas selector6';
+  }
+}
+
+/* mobile layout */
+@media(max-width:800px) {
+  .App {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 10vh 100vh 15vh;
+    grid-template-areas: 'header ' 'canvas' 'selector1' 'selector2' 'selector3' 'selector4' 'selector5' 'selector6';
+  }
 }
 
 .App-Header {
   grid-area: header;
-  background-color: #0F8790;
 }
 
 .Avatar-Canvas {
