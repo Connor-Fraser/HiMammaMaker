@@ -69,7 +69,7 @@ export default {
     },
 
     EYES : {
-        COLOUR_SWATCH: ['#6a55a1', '#48396d' ,'#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#Cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
+        COLOUR_SWATCH: ['#87a359', '#659ed5', '#c18953', '#825f5a'],
         OPTIONS : [
             {
                 NAME: 'NORMAL',
