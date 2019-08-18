@@ -90,31 +90,36 @@ export default class App extends React.Component {
         
         <div className="App-Selectors">
           <AvatarComponentSelector
+            label={ 'Skin' }
             colourSwatches={ this.skinColourSwatches }
             onColourChanges={ this.skinColourCallbacks }
             circlePicker={ true }
           />
 
           <AvatarComponentSelector
+            label={ 'Hair' }
             colourSwatches={ this.hairColourSwatches }
             onColourChanges={ this.hairColourCallbacks }
             options={ this.hairOptions }
             onOptionsChanges={ this.hairOptionsCallbacks } 
           />
 
-          <AvatarComponentSelector 
+          <AvatarComponentSelector
+            label={ 'Eyes' }
             colourSwatches={ this.eyeColourSwatches } 
             onColourChanges={ this.eyeColourCallbacks } 
             options={ this.eyeOptions } 
             onOptionsChanges={ this.eyeOptionsCallbacks }
           />
 
-          <AvatarComponentSelector 
+          <AvatarComponentSelector
+            label={ 'Mouth' } 
             options={ this.mouthOptions } 
             onOptionsChanges={ this.mouthOptionsCallbacks }
           />
 
-          <AvatarComponentSelector 
+          <AvatarComponentSelector
+            label={ 'Shirt' }
             colourSwatches={ this.shirtColourSwatches } 
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 

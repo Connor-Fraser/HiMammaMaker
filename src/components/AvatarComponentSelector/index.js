@@ -5,6 +5,7 @@ import './AvatarComponentSelector.css';
 
 /*
     ==== Props ====
+    label: label text for the selector
     colourSwatches: array of arrays of colour swatches (the first of which is the default colour)
     onColourChanges: array of callback functions for when colours gets changed
     options: array of options arrays (the first of which is the default selection)
@@ -81,23 +82,26 @@ export default class AvatarComponentSelector extends React.Component {
         }
 
         return(
-            <div className="Avatar-Component-Selector-Main" style={ componentSelectorComputedStyles }>
+            <div className="Avatar-Component-Selector">
+                <p className="Avatar-Component-Selector-Label">{ this.props.label }</p>
+                <div className="Avatar-Component-Selector-Main" style={ componentSelectorComputedStyles }>
 
-                {this.props.colourSwatches ? 
-                    <div className="Colour-Selector-Section" style={ colourSelectorSectionComputedStyles }>
-                        { colourSelectors }
-                    </div>
-                    :
-                    <div className="Colour-Selector-Section"/>
-                }
-                
-                { this.props.options ?
-                    <div className="Option-List" style={ optionSelectorsSectionComputedStyles }>
-                        { optionSelectors }
-                    </div>
-                    : 
-                    <div className="Option-List"/>
-                }
+                    {this.props.colourSwatches ? 
+                        <div className="Colour-Selector-Section" style={ colourSelectorSectionComputedStyles }>
+                            { colourSelectors }
+                        </div>
+                        :
+                        <div className="Colour-Selector-Section"/>
+                    }
+                    
+                    { this.props.options ?
+                        <div className="Option-List" style={ optionSelectorsSectionComputedStyles }>
+                            { optionSelectors }
+                        </div>
+                        : 
+                        <div className="Option-List"/>
+                    }
+                </div>
             </div>
         );
     }

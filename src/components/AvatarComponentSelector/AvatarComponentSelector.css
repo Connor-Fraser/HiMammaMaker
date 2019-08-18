@@ -1,8 +1,25 @@
+.Avatar-Component-Selector {
+    height: 100%;
+    margin-bottom: 5px;
+}
+
+.Avatar-Component-Selector-Label {
+    background-color: #2b4f4f;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #e3e4e6;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 2px;
+    text-align: center;
+    width: 50%;
+}
+
 .Avatar-Component-Selector-Main {
     display: grid;
     /* grid-template-columns is set programatically in the index.js file */
-    height: 100%;
-    margin-bottom: 5px;
+    height: 80%;
 }
 
 .Colour-Selector-Section {
