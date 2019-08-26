@@ -23,7 +23,9 @@ export default class App extends React.Component {
 
       shirtColour: CONSTS.SHIRT.COLOUR_SWATCH[0],
       shirtCuffColour: CONSTS.SHIRT.CUFFS.COLOUR_SWATCH[0],
-      shirtOption: CONSTS.SHIRT.OPTIONS[0]
+      shirtOption: CONSTS.SHIRT.OPTIONS[0],
+
+      propOption: CONSTS.PROPS.OPTIONS[0]
     };
 
     this.hairColourSwatches = [CONSTS.HAIR.COLOUR_SWATCH];
@@ -46,6 +48,9 @@ export default class App extends React.Component {
     this.shirtColourCallbacks = [this.generateBaseCallback('shirtColour'), this.generateBaseCallback('shirtCuffColour')];
     this.shirtOptions = [CONSTS.SHIRT.OPTIONS];
     this.shirtOptionsCallbacks = [this.generateBaseCallback('shirtOption')];
+
+    this.propOptions = [CONSTS.PROPS.OPTIONS];
+    this.propOptionsCallbacks = [this.generateBaseCallback('propOption')];
   };
 
   onPrimarySkinChange = (newColour) => {
@@ -85,7 +90,9 @@ export default class App extends React.Component {
 
             shirtColour={ this.state.shirtColour } 
             shirtCuffsColour={ this.state.shirtCuffColour } 
-            shirtOption={ this.state.shirtOption }/>
+            shirtOption={ this.state.shirtOption }
+            
+            propOption={ this.state.propOption }/>
         </div>
         
         <div className="App-Selectors">
@@ -124,6 +131,12 @@ export default class App extends React.Component {
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 
             onOptionsChanges={ this.shirtOptionsCallbacks }
+          />
+
+          <AvatarComponentSelector
+            label={ 'Prop' } 
+            options={ this.propOptions } 
+            onOptionsChanges={ this.propOptionsCallbacks }
           />
         </div>
       </div>

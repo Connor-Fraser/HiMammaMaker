@@ -15,6 +15,7 @@ import './AvatarCanvas.css';
     shirtColour: hex string denoting shirt colour
     shirtCuffsColour: hex string denoting shirt cuffs colour
     shirtOption: shirt option from the consts
+    propOption: prop option from the consts
 */
 
 export default class AvatarCanvas extends React.Component {
@@ -22,11 +23,11 @@ export default class AvatarCanvas extends React.Component {
     _getXPos(componentWidth) {
         //Assumption is each svg is centered (but can be configured with WIDTH property)
         return (this.canvas.width/2) - (componentWidth/2)
-    }
+    };
 
     _getYPos(hMultiple) {
         return hMultiple*this.canvas.height;
-    }
+    };
 
     setCanvasSize() {
         this.canvas.width = this.canvas.offsetWidth;
@@ -51,6 +52,9 @@ export default class AvatarCanvas extends React.Component {
             setTimeout(() => {
                 this.drawFace(ctx);
                 this.drawShirt(ctx);
+                setTimeout(() => {
+                    this.drawProp(ctx);
+                },10)
             },10);
         },10);
         
@@ -71,12 +75,16 @@ export default class AvatarCanvas extends React.Component {
         this.drawSVG(CONSTS.HAIR.EYEBROWS.GENERATE_SVG(this.props.hairColour), this._getXPos(CONSTS.HAIR.EYEBROWS.WIDTH), this._getYPos(CONSTS.HAIR.EYEBROWS.H_MULTIPLE), ctx);
         this.drawSVG(this.props.eyeOption.GENERATE_SVG(this.props.eyeColour), this._getXPos(this.props.eyeOption.WIDTH), this._getYPos(this.props.eyeOption.H_MULTIPLE), ctx);
         this.drawSVG(this.props.bangOption.GENERATE_SVG(this.props.hairColour), this._getXPos(this.props.bangOption.WIDTH), this._getYPos(this.props.bangOption.H_MULTIPLE), ctx);
-    }
+    };
 
     drawShirt(ctx) {
         this.drawSVG(CONSTS.SHIRT.GENERATE_SVG(this.props.shirtColour), this._getXPos(CONSTS.SHIRT.WIDTH), this._getYPos(CONSTS.SHIRT.H_MULTIPLE), ctx);
         this.drawSVG(CONSTS.SHIRT.CUFFS.GENERATE_SVG(this.props.shirtCuffsColour), this._getXPos(CONSTS.SHIRT.CUFFS.WIDTH), this._getYPos(CONSTS.SHIRT.CUFFS.H_MULTIPLE), ctx);
         this.drawSVG(this.props.shirtOption.GENERATE_SVG(), this._getXPos(this.props.shirtOption.WIDTH), this._getYPos(this.props.shirtOption.H_MULTIPLE), ctx);
+    };
+
+    drawProp(ctx) {
+        this.drawSVG(this.props.propOption.GENERATE_SVG(), this._getXPos(this.props.propOption.WIDTH), this._getYPos(this.props.propOption.H_MULTIPLE), ctx);
     };
 
     drawSVG(svgString, x, y, ctx) {
@@ -94,18 +102,18 @@ export default class AvatarCanvas extends React.Component {
         };
 
         img.src = image64;
-    }
+    };
 
     saveImage = () => {        
         const link = document.createElement('a');
         link.href = this.canvas.toDataURL();
         link.download = "HiMammaAvatar.png";
         link.click();
-    }
+    };
 
     componentDidUpdate() {
         this.clearAndDraw();   
-    }
+    };
 
     componentDidMount() {
         this.setCanvasSize();

@@ -3,8 +3,8 @@
   .App {
     display: grid;
     grid-template-columns: 60vw 40vw;
-    grid-template-rows: 10vh 15vh 75vh;
-    grid-template-areas: 'header header' 'canvas selector1' 'canvas selector2' 'canvas selector3' 'canvas selector4' 'canvas selector5' 'canvas selector6';
+    grid-template-rows: 6vh 15vh 79vh;
+    grid-template-areas: 'header header' 'canvas selector1' 'canvas selector2' 'canvas selector3' 'canvas selector4' 'canvas selector5' 'canvas selector6' 'canvas selector7' 'canvas selector8';
   }
 }
 
@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: 100vw;
     grid-template-rows: 10vh 100vh 15vh;
-    grid-template-areas: 'header ' 'canvas' 'selector1' 'selector2' 'selector3' 'selector4' 'selector5' 'selector6';
+    grid-template-areas: 'header ' 'canvas' 'selector1' 'selector2' 'selector3' 'selector4' 'selector5' 'selector6' 'selector7' 'selector8';
   }
 }
 
