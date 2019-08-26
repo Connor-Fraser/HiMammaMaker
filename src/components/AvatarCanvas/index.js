@@ -15,7 +15,8 @@ import './AvatarCanvas.css';
     shirtColour: hex string denoting shirt colour
     shirtCuffsColour: hex string denoting shirt cuffs colour
     shirtOption: shirt option from the consts
-    propOption: prop option from the consts
+    propOption1: prop option from the consts
+    propOption2: prop option from the consts
 */
 
 export default class AvatarCanvas extends React.Component {
@@ -84,7 +85,8 @@ export default class AvatarCanvas extends React.Component {
     };
 
     drawProp(ctx) {
-        this.drawSVG(this.props.propOption.GENERATE_SVG(), this._getXPos(this.props.propOption.WIDTH), this._getYPos(this.props.propOption.H_MULTIPLE), ctx);
+        this.drawSVG(this.props.propOption1.GENERATE_SVG(), this._getXPos(this.props.propOption1.WIDTH), this._getYPos(this.props.propOption1.H_MULTIPLE), ctx);
+        this.drawSVG(this.props.propOption2.GENERATE_SVG(), this._getXPos(this.props.propOption2.WIDTH), this._getYPos(this.props.propOption2.H_MULTIPLE), ctx);
     };
 
     drawSVG(svgString, x, y, ctx) {

@@ -8,10 +8,9 @@
   }
 
   .App-Header img {
-    float: left;
     height: 100%;
     margin-left: 10px;
-    width: 10%;
+    width: 200px;
   }
 }
 
@@ -25,10 +24,9 @@
   }
 
   .App-Header img {
-    float: left;
     height: 100%;
     margin-left: 10px;
-    width: 30%;
+    width: 300px;
   }
 }
 
