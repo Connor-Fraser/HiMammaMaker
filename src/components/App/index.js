@@ -3,7 +3,7 @@ import CONSTS from '../../utils/constants.js'
 import AvatarCanvas from '../AvatarCanvas';
 import AvatarComponentSelector from '../AvatarComponentSelector'
 import './App.css';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 export default class App extends React.Component {
 
