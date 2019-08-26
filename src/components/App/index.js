@@ -3,6 +3,7 @@ import CONSTS from '../../utils/constants.js'
 import AvatarCanvas from '../AvatarCanvas';
 import AvatarComponentSelector from '../AvatarComponentSelector'
 import './App.css';
+import logo from '../../assets/logo.png'
 
 export default class App extends React.Component {
 
@@ -73,7 +74,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-Header"></div>
+        <div className="App-Header">
+          <img src={ logo } alt="logo"/>
+        </div>
         
         <div className="Avatar-Canvas">
           <AvatarCanvas 
