@@ -1,5 +1,8 @@
 export default {
     COLOUR_SWATCH: ['#87a359', '#659ed5', '#c18953', '#825f5a'],
+    DEFAULT_COLOUR_INDEX: 3,
+    DEFAULT_OPTION_INDEX: 1,
+
     OPTIONS : [
         {
             NAME: 'NORMAL',

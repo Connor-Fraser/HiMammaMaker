@@ -4,11 +4,15 @@ export default {
     COLOUR_SWATCH: ['#6a55a1', '#48396d' ,'#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#f399c1', '#cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
     GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.34" height="143.57" viewBox="0 0 304.34 143.57"><defs><style>.cls-1{fill:${colour};}</style></defs><title>TSHIRT_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M304.34,104.3C304.34,55.46,259.94,0,198.12,0h-8.49c0,16.34-16.77,29.59-37.46,29.59S114.71,16.34,114.71,0h-8.49C44.4,0,0,55.46,0,104.3H47.19v39.27H257.06V104.3Z"/></g></g></svg>`,
 
+    DEFAULT_COLOUR_INDEX: 10,
+    DEFAULT_OPTION_INDEX: 1,
+
     CUFFS: {
         WIDTH: 304.25,
         H_MULTIPLE: 0.922,
         COLOUR_SWATCH: ['#48396d','#6a55a1','#43b9c6', '#0f8790', '#79be43', '#3d9644', '#ffc32f','#d4ab2a', '#f78f1e', '#d67827', '#f399c1', '#cb4e4b', '#902a1d','#333333', '#555555', '#dddddd'],
-        GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.25" height="14.09" viewBox="0 0 304.25 14.09"><defs><style>.cls-1{fill:${colour};}</style></defs><title>CUFFS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><rect class="cls-1" width="47.19" height="14.09"/><rect class="cls-1" x="257.06" width="47.19" height="14.09"/></g></g></svg>`
+        GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="304.25" height="14.09" viewBox="0 0 304.25 14.09"><defs><style>.cls-1{fill:${colour};}</style></defs><title>CUFFS_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><rect class="cls-1" width="47.19" height="14.09"/><rect class="cls-1" x="257.06" width="47.19" height="14.09"/></g></g></svg>`,
+        DEFAULT_COLOUR_INDEX: 11,
     },
 
     OPTIONS: [

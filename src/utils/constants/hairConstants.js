@@ -1,5 +1,8 @@
 export default {
     COLOUR_SWATCH: ['#fec971', '#deb487', '#d4634A', '#89685c', '#4d4d4d'],
+    DEFAULT_COLOUR_INDEX: 4,
+    DEFAULT_BACK_HAIR_OPTION_INDEX: 6,
+    DEFAULT_BANG_OPTION_INDEX: 8,
 
     EYEBROWS: {
         WIDTH: 164.49,

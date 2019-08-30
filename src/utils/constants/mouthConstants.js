@@ -1,4 +1,6 @@
 export default {
+    DEFAULT_OPTION_INDEX: 0,
+
     OPTIONS : [
         {
             NAME: 'OPEN',

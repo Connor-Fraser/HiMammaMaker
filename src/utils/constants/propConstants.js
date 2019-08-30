@@ -1,4 +1,6 @@
 export default {
+    DEFAULT_PROP1_OPTION_INDEX: 25,
+
     OPTIONS: [
         {
             NAME: 'NONE',

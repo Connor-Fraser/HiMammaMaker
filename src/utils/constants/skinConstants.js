@@ -1,6 +1,7 @@
 export default {
     COLOUR_SWATCH: ['#fce1cc', '#fddbcc', '#e5bda7', '#ca9f95', '#7c6a65'],
     SECONDARY_COLOUR_SWATCH: ['#e3a694', '#e3a694', '#b78d83', '#a3776b', '#574d4c'],
+    DEFAULT_COLOUR_INDEX: 0,
 
     NECK: {
         WIDTH: 81.47,

@@ -11,22 +11,22 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      hairColour: CONSTS.HAIR.COLOUR_SWATCH[4],
-      backHairOption: CONSTS.HAIR.BACK_HAIR_OPTIONS[6],
-      bangOption: CONSTS.HAIR.BANG_OPTIONS[8],
+      hairColour: CONSTS.HAIR.COLOUR_SWATCH[CONSTS.HAIR.DEFAULT_COLOUR_INDEX],
+      backHairOption: CONSTS.HAIR.BACK_HAIR_OPTIONS[CONSTS.HAIR.DEFAULT_BACK_HAIR_OPTION_INDEX],
+      bangOption: CONSTS.HAIR.BANG_OPTIONS[CONSTS.HAIR.DEFAULT_BANG_OPTION_INDEX],
 
-      primarySkinColour: CONSTS.SKIN.COLOUR_SWATCH[0],
-      secondarySkinColour: CONSTS.SKIN.SECONDARY_COLOUR_SWATCH[0],
+      primarySkinColour: CONSTS.SKIN.COLOUR_SWATCH[CONSTS.SKIN.DEFAULT_COLOUR_INDEX],
+      secondarySkinColour: CONSTS.SKIN.SECONDARY_COLOUR_SWATCH[CONSTS.SKIN.DEFAULT_COLOUR_INDEX],
 
-      eyeColour: CONSTS.EYES.COLOUR_SWATCH[3],
-      eyeOption: CONSTS.EYES.OPTIONS[1],
-      mouthOption: CONSTS.MOUTH.OPTIONS[0],
+      eyeColour: CONSTS.EYES.COLOUR_SWATCH[CONSTS.EYES.DEFAULT_COLOUR_INDEX],
+      eyeOption: CONSTS.EYES.OPTIONS[CONSTS.EYES.DEFAULT_OPTION_INDEX],
+      mouthOption: CONSTS.MOUTH.OPTIONS[CONSTS.MOUTH.DEFAULT_OPTION_INDEX],
 
-      shirtColour: CONSTS.SHIRT.COLOUR_SWATCH[10],
-      shirtCuffColour: CONSTS.SHIRT.CUFFS.COLOUR_SWATCH[11],
-      shirtOption: CONSTS.SHIRT.OPTIONS[1],
+      shirtColour: CONSTS.SHIRT.COLOUR_SWATCH[CONSTS.SHIRT.DEFAULT_COLOUR_INDEX],
+      shirtCuffColour: CONSTS.SHIRT.CUFFS.COLOUR_SWATCH[CONSTS.SHIRT.CUFFS.DEFAULT_COLOUR_INDEX],
+      shirtOption: CONSTS.SHIRT.OPTIONS[CONSTS.SHIRT.DEFAULT_OPTION_INDEX],
 
-      propOption1: CONSTS.PROPS.OPTIONS[25],
+      propOption1: CONSTS.PROPS.OPTIONS[CONSTS.PROPS.DEFAULT_PROP1_OPTION_INDEX],
       propOption2: CONSTS.PROPS.OPTIONS[0],
     };
 
@@ -113,7 +113,8 @@ export default class App extends React.Component {
             colourSwatches={ this.hairColourSwatches }
             onColourChanges={ this.hairColourCallbacks }
             options={ this.hairOptions }
-            onOptionsChanges={ this.hairOptionsCallbacks } 
+            onOptionsChanges={ this.hairOptionsCallbacks }
+            optionStartIndexes={ [CONSTS.HAIR.DEFAULT_BACK_HAIR_OPTION_INDEX, CONSTS.HAIR.DEFAULT_BANG_OPTION_INDEX] }
           />
 
           <AvatarComponentSelector
@@ -122,12 +123,14 @@ export default class App extends React.Component {
             onColourChanges={ this.eyeColourCallbacks } 
             options={ this.eyeOptions } 
             onOptionsChanges={ this.eyeOptionsCallbacks }
+            optionStartIndexes={ [CONSTS.EYES.DEFAULT_OPTION_INDEX] }
           />
 
           <AvatarComponentSelector
             label={ 'Mouth' } 
             options={ this.mouthOptions } 
             onOptionsChanges={ this.mouthOptionsCallbacks }
+            optionStartIndexes={ [CONSTS.MOUTH.DEFAULT_OPTION_INDEX] }
           />
 
           <AvatarComponentSelector
@@ -136,12 +139,14 @@ export default class App extends React.Component {
             onColourChanges={ this.shirtColourCallbacks } 
             options={ this.shirtOptions } 
             onOptionsChanges={ this.shirtOptionsCallbacks }
+            optionStartIndexes={ [CONSTS.SHIRT.DEFAULT_OPTION_INDEX] }
           />
 
           <AvatarComponentSelector
             label={ 'Props' } 
             options={ this.propOptions } 
             onOptionsChanges={ this.propOptionsCallbacks }
+            optionStartIndexes={ [CONSTS.PROPS.DEFAULT_PROP1_OPTION_INDEX] }
           />
         </div>
       </div>

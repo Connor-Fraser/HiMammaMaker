@@ -5,6 +5,7 @@ import './OptionSelector.css';
     ==== Props ====
     options: list of options the selector can cycle through (first defaulted)
     onOptionChange: callback for when option is changed
+    startIndex: index of option list to start as default
 */
 
 export default class OptionSelector extends React.Component {
@@ -12,7 +13,7 @@ export default class OptionSelector extends React.Component {
         super(props);
 
         this.state = {
-            index: 0
+            index: this.props.startIndex || 0
         };
     }; 
 
