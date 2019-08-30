@@ -211,7 +211,7 @@ export default {
             },
             {
                 NAME: 'BANG8',
-                WIDTH: 188.21,
+                WIDTH: 175,
                 H_MULTIPLE: 0.13,
                 GENERATE_SVG: (colour) => `<svg xmlns="http://www.w3.org/2000/svg" width="188.21" height="125.44" viewBox="0 0 188.21 125.44"><defs><style>.cls-1{fill:${colour};}</style></defs><title>BANG6_SVG</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_4" data-name="Layer 4"><path class="cls-1" d="M93.57,125.44,80.13,85.83C85.84,99,100,107,114.28,109s28.66-1.11,42.6-4.62L136.54,70.82,171.1,113c16.48-10.32,20.91-33.82,13.93-52s-22.8-31.5-39.63-41.22C121.21,5.87,93-2.31,65.25.58c-19.45,2-38.66,9.88-53.33,22.93C-4.25,37.9-2,49.5,7.13,68,23.12,100.42,57.11,124.27,93.57,125.44Z"/></g></g></svg>`
             }
